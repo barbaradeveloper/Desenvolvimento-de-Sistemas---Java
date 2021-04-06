@@ -11,6 +11,7 @@ public class Vendas {
 	public String formaPagamento;
 	public String dataVenda;
 	public String horaVenda;
+	public double valorPago;
 	public double troco;
 	
 	// Métodos Getter e Setter
@@ -62,6 +63,13 @@ public class Vendas {
 	public void setHoraVenda(String horaVenda) {
 		this.horaVenda = horaVenda;
 	}
+	
+	public double getValorPago() {
+		return valorPago;
+	}
+	public void setValorPago(double valorPago) {
+		this.valorPago = valorPago;
+	}
 	public double getTroco() {
 		return troco;
 	}
@@ -78,5 +86,23 @@ public class Vendas {
 	public void excluirProduto() {
 		
 	}
+	public void exibirVendas() {
+		System.out.println("");
+		System.out.println("|______________________________________________|");
+		System.out.println("|               RELATÓRIO DE VENDAS            |");
+		System.out.println("|______________________________________________|");
+		System.out.println("");
+		System.out.println("ID da venda: " + idVenda);
+		System.out.println("Nome do produto: " + nomeProduto);
+		System.out.println("Quantidade do produto: " + quantidadeProduto);
+		System.out.println("Valor unitário: " + valorUnitario);
+		System.out.println("Forma de Pagamento: " + formaPagamento);
+		System.out.println("Data da Venda: " + dataVenda);
+		System.out.println("Hora da venda: " + horaVenda);
+		System.out.println("Valor Total: " + valorTotal); 
+		System.out.println("Valor pago pelo cliente: " + valorPago); 
+		System.out.println("Troco: " + troco); 
+	}
+	
 	
 }

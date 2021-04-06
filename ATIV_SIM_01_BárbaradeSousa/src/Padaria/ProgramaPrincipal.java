@@ -85,14 +85,14 @@ public class ProgramaPrincipal {
 				venda.setQuantidadeProduto(quantidadeProduto);
 				
 				System.out.println(" Valor Unitário: ");
-				int valorUnitario = scan.nextInt();
+			    double valorUnitario = scan.nextDouble();
 				venda.setValorUnitario(valorUnitario);
 				
-				// Valor Total
+				
 				System.out.println(" Forma de Pagamento: ");
 				String formaPagamento = scan.next();
 				venda.setFormaPagamento(formaPagamento);
-				
+								
 				System.out.println(" Data da venda: ");
 				String dataVenda = scan.next();
 				venda.setDataVenda(dataVenda);
@@ -101,7 +101,32 @@ public class ProgramaPrincipal {
 				String horaVenda = scan.next();
 				venda.setHoraVenda(horaVenda);
 				
-				// Troco
+				System.out.println("\n Valor pago pelo cliente: ");
+				double valorPago = scan.nextDouble();
+				venda.setValorPago(valorPago);
+				
+				// Calculo Valor Total da Venda
+				venda.setValorTotal(venda.quantidadeProduto * venda.valorUnitario);
+				
+				// Calculo Troco				
+				venda.setTroco(venda.valorPago - venda.valorTotal);
+				
+				// Para exibir informações da venda
+				System.out.println("");
+				System.out.println("|---------------------------INFORMAÇÕES DE VENDA----------------------------------|");
+				System.out.println("ID da venda: " + venda.getIdVenda());
+				System.out.println("Nome do produto: " + venda.getNomeProduto());
+				System.out.println("Quantidade do produto: " + venda.getQuantidadeProduto());
+				System.out.println("Valor unitário: " + venda.getValorUnitario());
+				System.out.println("Forma de Pagamento: " + venda.getFormaPagamento());
+				System.out.println("Data da Venda: " + venda.getDataVenda());
+				System.out.println("Hora da venda: " + venda.getHoraVenda());
+				System.out.println("Valor Total: " + venda.getValorTotal()); 
+				System.out.println("Valor pago pelo cliente: " + venda.getValorPago()); 
+				System.out.println("Troco: " + venda.getTroco()); 
+				
+				
+				
 				listVenda.add(venda); // Adicionando os dados lidos no ArrayList		
 				
 				System.out.println("Deseja cadastrar uma nova venda? ");
@@ -109,23 +134,28 @@ public class ProgramaPrincipal {
 				System.out.println("\n 2 - para não");
 				resposta = scan.nextInt();
 				
+				
+				
 				if(resposta == 2) {
+					venda.exibirVendas();
 				break;
 				}
 				
-				}
 				
-				System.out.println("Digite 1 para voltar ao menu principal : ");
-				voltar = scan.nextInt();
+			}
+						
+				break;
 				
 			case 2:
 				System.out.println("|____________________________________________|");
-				System.out.println("|              CANCELAR VENDA               |");
+				System.out.println("|              CANCELAR VENDA                |");
 				System.out.println("|____________________________________________|");
 				System.out.println("");
 				
 				System.out.println("Informe o ID da venda que deseja cancelar: ");
 				int cancelarVenda = scan.nextInt();
+				
+				
 				
 		
 				break;
@@ -142,8 +172,7 @@ public class ProgramaPrincipal {
 				
 			}
 			
-			System.out.println("Digite 1 para voltar ao menu principal : ");
-			voltar = scan.nextInt();
+			break;
 		case 2:
 			
 			while(resposta2 == 1) {
@@ -177,11 +206,10 @@ public class ProgramaPrincipal {
 			if(resposta2 == 2) {			
 				break;
 				}
-			System.out.println("Digite 1 para voltar ao menu principal : ");
-			voltar = scan.nextInt();
+		
 			}
 			
-				
+			break;	
 		case 3:
 			while(resposta3 == 1) {
 			System.out.println("|____________________________________________|");
@@ -247,9 +275,9 @@ public class ProgramaPrincipal {
 			if(resposta3 == 2) {			
 			break;
 			}
-			System.out.println("Digite 1 para voltar ao menu principal : ");
-			voltar = scan.nextInt();
+			
 		}
+			break;
 			
 		case 4: 
 			while(resposta4 == 1) {
@@ -292,12 +320,16 @@ public class ProgramaPrincipal {
 				
 				listEncomenda.add(encomenda);
 				
+				System.out.println("Deseja cadastrar outra encomenda? ");
+				System.out.println("\n 1 - para sim");
+				System.out.println("\n 2 - para não");
+				resposta4 = scan.nextInt();
+				
 			if(resposta4 == 2) {	
 			break;
 			}
-			System.out.println("Digite 1 para voltar ao menu principal : ");
-			voltar = scan.nextInt();
 		}
+			break;
 			
 			
 			case 5:
@@ -324,13 +356,17 @@ public class ProgramaPrincipal {
 				estoque.setDescricaoProduto(descricaoProduto);
 				
 				listEstoque.add(estoque);
+				System.out.println("Deseja adicionar mais algum produto? ");
+				System.out.println("\n 1 - para sim");
+				System.out.println("\n 2 - para não");
+				resposta5 = scan.nextInt();
 				if(resposta5 == 2) {
 				break;	
 				}
 			}				
 			
 		}			
-		System.out.println("Digite 1 para voltar ao menu principal ou 0 para sair do programa: ");
+		System.out.println("Digite 1 para voltar ao menu principal ou 2 para sair do programa: ");
 		voltar = scan.nextInt();
 		
 		}
